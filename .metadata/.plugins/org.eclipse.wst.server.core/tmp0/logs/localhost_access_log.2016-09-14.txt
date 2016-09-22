@@ -1,0 +1,15 @@
+127.0.0.1 - - [14/Sep/2016:10:53:49 -0300] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:10:53:52 -0300] "GET /08-Livro/cadastro-livro.jsp HTTP/1.1" 200 2239
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:10:53:52 -0300] "GET /08-Livro/css/bootstrap.min.css HTTP/1.1" 200 121200
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:10:53:52 -0300] "GET /favicon.ico HTTP/1.1" 404 1016
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:10:53:52 -0300] "GET /favicon.ico HTTP/1.1" 404 1016
+127.0.0.1 - - [14/Sep/2016:11:21:40 -0300] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:11:21:42 -0300] "GET /08-Livro/cadastro-usuario.jsp HTTP/1.1" 200 1062
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:11:22:22 -0300] "GET /08-Livro/cadastro-usuario.jsp HTTP/1.1" 200 1132
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:11:22:22 -0300] "GET /08-Livro/css/bootstrap.min.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:11:23:34 -0300] "GET /08-Livro/cadastro-usuario.jsp?nome=&login=&senha=&repita= HTTP/1.1" 200 1132
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:11:23:37 -0300] "GET /08-Livro/cadastro-usuario.jsp?nome=&login=&senha=&repita= HTTP/1.1" 200 1132
+127.0.0.1 - - [14/Sep/2016:11:50:45 -0300] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:11:50:46 -0300] "GET /08-Livro/cadastro-usuario.jsp HTTP/1.1" 200 1170
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:11:51:04 -0300] "POST /08-Livro/usuarioServlet HTTP/1.1" 200 278
+0:0:0:0:0:0:0:1 - - [14/Sep/2016:11:51:18 -0300] "POST /08-Livro/usuarioServlet HTTP/1.1" 200 278
