@@ -34,7 +34,6 @@ INDEX VERSION 1.127+F:\Projetos\1TDSF\.metadata\.plugins\org.eclipse.jdt.core
 2345470644.index
 3349413686.index
 2959957318.index
-2622060274.index
 4234831296.index
 131346337.index
 2570826971.index

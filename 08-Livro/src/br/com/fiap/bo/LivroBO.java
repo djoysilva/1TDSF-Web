@@ -27,8 +27,9 @@ public class LivroBO {
 		Livro livro = buscarPorIsbn(isbn);
 		if (livro != null){
 			lista.remove(livro);
+		}else{
+			throw new Exception("Livro não encontrado!");
 		}
-		throw new Exception("Livro não encontrado!");
 	}
 	
 	public Livro buscarPorIsbn(long isbn){
