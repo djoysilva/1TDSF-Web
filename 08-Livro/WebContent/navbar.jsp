@@ -17,7 +17,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="cadastro-livro.jsp">Cadastro</a></li>
-        <li><a href="livroServlet">Lista de Livros</a></li>        
+        <li><a href="livroServlet?acao=listar">Lista de Livros</a></li>        
       </ul>  
       
       <c:if test="${empty usuario }">

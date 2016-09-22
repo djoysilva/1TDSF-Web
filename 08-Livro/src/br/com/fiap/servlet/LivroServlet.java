@@ -17,14 +17,33 @@ public class LivroServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//Recuperar a ação
+		String acao = req.getParameter("acao");
 		//Instancia a classe BO
 		LivroBO bo = new LivroBO();
-		//Buscar os livros cadastrados
-		List<Livro> lista = bo.listar();
-		//Passar a lista para o JSP
-		req.setAttribute("chaveDaLista", lista);
-		//Redirecionar para a página JSP
-		req.getRequestDispatcher("lista-livro.jsp").forward(req, resp);
+		switch (acao) {
+		case "listar":
+			//Buscar os livros cadastrados
+			List<Livro> lista = bo.listar();
+			//Passar a lista para o JSP
+			req.setAttribute("chaveDaLista", lista);
+			//Redirecionar para a página JSP
+			req.getRequestDispatcher("lista-livro.jsp").forward(req, resp);	
+			break;
+		case "abrirForm":
+			//Recuperar o ISBN do link
+			long isbn = Long.parseLong(req.getParameter("isbn"));
+			//Busca o livro no Banco (BO) usando o isbn
+			Livro livro = bo.buscarPorIsbn(isbn);
+			//Passa o livro para a JSP
+			req.setAttribute("livro", livro);
+			//Encaminha o usuario para o JSP
+			req.getRequestDispatcher("altera-livro.jsp")
+												.forward(req, resp);
+			break;
+		default:
+			break;
+		}
 	}
 	
 	@Override
@@ -43,13 +62,17 @@ public class LivroServlet extends HttpServlet {
 			try{
 				//Chamar o BO para excluir
 				bo.excluir(isbnExcluir);
+				//Passar a mensagem para a JSP
+				req.setAttribute("mensagem", "Livro excluido!");
 			}catch(Exception e){
 				e.printStackTrace();
+				//Passar a mensagem para a JSP
+				req.setAttribute("mensagem", e.getMessage());
 			}finally {
 				//Buscar os livros cadastrados
 				List<Livro> lista = bo.listar();
 				//Passar a lista para o JSP
-				req.setAttribute("chaveDaLista", lista);
+				req.setAttribute("chaveDaLista", lista);				
 				//Redirecionar para algum lugar...
 				req.getRequestDispatcher("lista-livro.jsp").forward(req, resp);
 			}

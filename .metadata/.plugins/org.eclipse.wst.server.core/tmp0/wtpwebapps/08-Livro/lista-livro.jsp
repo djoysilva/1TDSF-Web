@@ -13,6 +13,13 @@
 <%@ include file="navbar.jsp" %>
 <div class="container">
 	<h1>Lista de Livros</h1>
+	
+	<c:if test="${not empty mensagem }">
+		<div class="alert alert-danger">
+			${mensagem}
+		</div>
+	</c:if>
+	
 	<table class="table">
 		<tr>
 			<th>Título</th>
@@ -30,6 +37,11 @@
 				<td>${risos.numeroPagina }</td>
 				<td>${risos.isbn }</td>
 				<td>
+					<c:url value="livroServlet" var="link">
+						<c:param name="isbn" value="${risos.isbn }"/>
+						<c:param name="acao" value="abrirForm"/>
+					</c:url>
+					<a href="${link}" class="btn btn-info btn-sm">Alterar</a>
 					<button onclick="idIsbn.value = ${risos.isbn}" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">
 					  	Remover
 					</button>
