@@ -23,10 +23,7 @@ public class LivroServlet extends HttpServlet {
 		LivroBO bo = new LivroBO();
 		switch (acao) {
 		case "listar":
-			//Buscar os livros cadastrados
-			List<Livro> lista = bo.listar();
-			//Passar a lista para o JSP
-			req.setAttribute("chaveDaLista", lista);
+			listarLivro(req, bo);
 			//Redirecionar para a página JSP
 			req.getRequestDispatcher("lista-livro.jsp").forward(req, resp);	
 			break;
@@ -45,6 +42,13 @@ public class LivroServlet extends HttpServlet {
 			break;
 		}
 	}
+
+	private void listarLivro(HttpServletRequest req, LivroBO bo) {
+		//Buscar os livros cadastrados
+		List<Livro> lista = bo.listar();
+		//Passar a lista para o JSP
+		req.setAttribute("chaveDaLista", lista);
+	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -56,6 +60,29 @@ public class LivroServlet extends HttpServlet {
 		LivroBO bo = new LivroBO();
 		
 		switch (acao) {
+		case "alterar":
+			//Recuperar as informações do formulário
+			Livro li = carregarLivroForm(req);
+			try{
+				//chama o metodo e atualiza o BO
+				bo.atualizar(li);
+				//Mensagem de sucesso
+				req.setAttribute("mensagem", "Livro atualizado");
+				//Manda a lista de livros para a tabela no JSP
+				listarLivro(req,bo);
+				//Redirecionar para a pag de listagem
+				req.getRequestDispatcher("lista-livro.jsp").forward(req,resp);
+				
+			}catch (Exception e){
+				e.printStackTrace();
+				//Mensagem de erro
+				req.setAttribute("mensagem", e.getMessage());
+				//Redireciona para pag de atualização
+				req.getRequestDispatcher("altera-livro.jsp").forward(req, resp);
+				
+			}
+			break;
+			
 		case "excluir":
 			//Recuperar o ISBN do formulário de exclusão
 			long isbnExcluir = Long.parseLong(req.getParameter("isbn"));
@@ -69,24 +96,13 @@ public class LivroServlet extends HttpServlet {
 				//Passar a mensagem para a JSP
 				req.setAttribute("mensagem", e.getMessage());
 			}finally {
-				//Buscar os livros cadastrados
-				List<Livro> lista = bo.listar();
-				//Passar a lista para o JSP
-				req.setAttribute("chaveDaLista", lista);				
+				listarLivro(req, bo);				
 				//Redirecionar para algum lugar...
 				req.getRequestDispatcher("lista-livro.jsp").forward(req, resp);
 			}
 			break;
 		case "cadastrar":
-			//Recuperar os valores do formulário
-			String titulo = req.getParameter("titulo");
-			long isbn = Long.parseLong(req.getParameter("isbn"));
-			String autor = req.getParameter("autor");
-			int pagina = Integer.parseInt(req.getParameter("numero"));
-			
-			//Instanciar o livro
-			Livro livro = new Livro(isbn,titulo,pagina,autor);
-			
+			Livro livro = carregarLivroForm(req);
 			bo.cadastrar(livro);
 			
 			//Exibe uma mensagem para a tela
@@ -99,6 +115,18 @@ public class LivroServlet extends HttpServlet {
 		}
 		
 		
+	}
+
+	private Livro carregarLivroForm(HttpServletRequest req) {
+		//Recuperar os valores do formulário
+		String titulo = req.getParameter("titulo");
+		long isbn = Long.parseLong(req.getParameter("isbn"));
+		String autor = req.getParameter("autor");
+		int pagina = Integer.parseInt(req.getParameter("numero"));
+		
+		//Instanciar o livro
+		Livro livro = new Livro(isbn,titulo,pagina,autor);
+		return livro;
 	}
 		
 }
