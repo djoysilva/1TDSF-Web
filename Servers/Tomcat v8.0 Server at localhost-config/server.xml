@@ -124,7 +124,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="02-Login" path="/02-Login" reloadable="true" source="org.eclipse.jst.jee.server:02-Login"/><Context docBase="03-JSP" path="/03-JSP" reloadable="true" source="org.eclipse.jst.jee.server:03-JSP"/><Context docBase="04-JSP" path="/04-JSP" reloadable="true" source="org.eclipse.jst.jee.server:04-JSP"/><Context docBase="07-Seguradora" path="/07-Seguradora" reloadable="true" source="org.eclipse.jst.jee.server:07-Seguradora"/><Context docBase="08-Livro" path="/08-Livro" reloadable="true" source="org.eclipse.jst.jee.server:08-Livro"/></Host>
+      <Context docBase="02-Login" path="/02-Login" reloadable="true" source="org.eclipse.jst.jee.server:02-Login"/><Context docBase="03-JSP" path="/03-JSP" reloadable="true" source="org.eclipse.jst.jee.server:03-JSP"/><Context docBase="04-JSP" path="/04-JSP" reloadable="true" source="org.eclipse.jst.jee.server:04-JSP"/><Context docBase="07-Seguradora" path="/07-Seguradora" reloadable="true" source="org.eclipse.jst.jee.server:07-Seguradora"/><Context docBase="08-Livro" path="/08-Livro" reloadable="true" source="org.eclipse.jst.jee.server:08-Livro"/><Context docBase="FIAPJobs" path="/FIAPJobs" reloadable="true" source="org.eclipse.jst.jee.server:FIAPJobs"/></Host>
     </Engine>
   </Service>
 </Server>

@@ -7,11 +7,11 @@
 <fullyQualifiedTypeName name="br.com.fiap.bean.Livro"/>
 <fullyQualifiedTypeName name="org.omg.PortableServer.LifespanPolicyValue"/>
 <fullyQualifiedTypeName name="br.com.fiap.bo.LivroBO"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="br.com.fiap.bo.UsuarioBO"/>
 <fullyQualifiedTypeName name="br.com.fiap.bean.Usuario"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
 <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

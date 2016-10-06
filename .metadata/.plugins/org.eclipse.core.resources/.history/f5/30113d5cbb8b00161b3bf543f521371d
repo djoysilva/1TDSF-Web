@@ -1,0 +1,65 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Cadastro de Vaga</title>
+<%@ include file = "includes.jsp" %>
+</head>
+<body>
+	<%@ include file="navbar.jsp" %>
+	<div class="container">
+	
+		<form method="post" action="cadastrarVaga">
+			<div class="row">
+				<div class="col-md-6 form-group">
+					<label for="idTitulo">Título</label>
+					<input type="text" name="titulo" id="idTitulo" class="form-control">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group">
+					<label for="idCargo">Cargo</label>
+					<input type="text" name="cargo" id="idCargo" class="form-control">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group">
+					<label for="idSalario">Salário</label>
+					<input type="text" name="salario" id="idSalario" class="form-control">
+				</div>	
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group">
+					<label for="idData">Data</label>
+					<input type="text" name="data" id="idData" class="form-control">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group">
+					<label for="idQuantidade">Quantidade</label>
+					<input type="text" name="quantidade" id="idQuantidade" class="form-control">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group">
+					<label for="idEmpresa">Empresa</label>
+					<select name="empresa" id="idEmpresa" class="form-control">
+						<c:forEach var="e" items="${listaEmpresa}">
+							<option value="">${e.nome}</option>
+						</c:forEach>
+					</select>
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-md-6 form-group">
+					<label for="idDescricao">Descrição</label>
+					<input type="text" name="descricao" id="idDescricao" class="form-control">
+				</div>
+			</div>
+		</form>
+		
+	</div>
+</body>
+</html>
